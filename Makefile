@@ -26,7 +26,6 @@ src/main_utils/main_utils.c \
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-
 $(OBJ_DIR)/src/game/game.o: FLAGS += -Wno-cast-function-type
 
 all: $(LIBFT) $(MLX_LIB) $(NAME)
