@@ -111,9 +111,9 @@ void	parse_map(t_data *data, int fd)
 		exit_error(data, "Map is too big\n", 0);
 	}
 	data->map_max_rows = ft_size_vetor(data->map);
-	locate_player(data);
+	locate_player(data, fd);
 	data->map_copy = ft_vetor_dup(data->map);
-	flood_fill(data, data->game->player.pos_y, data->game->player.pos_x);
-	island_handler(data);
+	flood_fill(data, data->game->player.pos_y, data->game->player.pos_x, fd);
+	island_handler(data, fd);
 	ft_free_vector(&data->map_copy);
 }

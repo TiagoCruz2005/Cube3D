@@ -21,10 +21,7 @@ void    main_verify_file(t_data *data)
 void    main_parse_identifiers(t_data *data, int fd)
 {
     if (!parse_identifiers(data, fd))
-    {
-        close(fd);
         exit_error(data, "Identifiers are incorrect\n", 0);
-    }
 }
 
 void    main_verify_images_rgb_dup(t_data *data, t_game *game)
@@ -40,5 +37,8 @@ void    main_verify_images_rgb_dup(t_data *data, t_game *game)
 void    main_run_game(t_data *data, t_game *game)
 {
     if (!run_game(data, game))
+    {
+        if_allocated_free(data);
         exit(EXIT_FAILURE);
+    }
 }

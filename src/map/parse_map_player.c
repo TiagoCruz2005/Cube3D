@@ -26,7 +26,7 @@ static void	locate_player_helper(t_data *d, int y, char *line, int *p_found)
 	}
 }
 
-void	locate_player(t_data *d)
+void	locate_player(t_data *d, int fd)
 {
 	int	y;
 	int	player_found;
@@ -39,5 +39,8 @@ void	locate_player(t_data *d)
 		y++;
 	}
 	if (player_found == FALSE)
+	{
+		close(fd);
 		exit_error(d, "Player not found\n", 0);
+	}
 }

@@ -6,6 +6,8 @@ void	if_allocated_free(t_data *data)
 		free(data->file);
 	if (data->map)
 		ft_free_vector(&data->map);
+	if (data->map_copy)
+		ft_free_vector(&data->map_copy);
 	if_textures_alloc_free(data);
 }
 
