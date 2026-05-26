@@ -3,7 +3,7 @@ include includes/colors.mk
 CC = cc
 FLAGS = -Wall -Werror -Wextra -O3 -Iincludes
 
-NAME = cub3d
+NAME = Cub3d
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

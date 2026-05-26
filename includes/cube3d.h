@@ -190,7 +190,7 @@ void		close_game(t_game *game);
 void    main_arg_inits(t_data *data, t_game *game, int argc);
 void    main_verify_file(t_data *data);
 void    main_parse_identifiers(t_data *data, int fd);
-void    main_verify_images_rgb_dup(t_data *data, t_game *game);
+void    main_verify_images_rgb_dup_mlx_init(t_data *data, t_game *game);
 void    main_run_game(t_data *data, t_game *game);
 
 #endif
