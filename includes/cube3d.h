@@ -181,14 +181,14 @@ void		rotate_left(t_game *game);
 void		rotate_up_down(t_game *game, int dir);
 
 //close.c
-void		close_game(t_game *game);
+int			close_game(t_game *game);
 
 // main_utils
 // main_utils.c
-void    main_arg_inits(t_data *data, t_game *game, int argc);
-void    main_verify_file(t_data *data);
-void    main_parse_identifiers(t_data *data, int fd);
-void    main_verify_images_rgb_dup(t_data *data, t_game *game);
-void    main_run_game(t_data *data, t_game *game);
+void		main_arg_inits(t_data *data, t_game *game, int argc);
+void		main_verify_file(t_data *data);
+void		main_parse_identifiers(t_data *data, int fd);
+void		main_verify_images_rgb_dup(t_data *data, t_game *game);
+void		main_run_game(t_data *data, t_game *game);
 
 #endif

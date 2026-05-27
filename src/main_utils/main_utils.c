@@ -1,44 +1,44 @@
-# include "cube3d.h"
+#include "cube3d.h"
 
-void    main_arg_inits(t_data *data, t_game *game, int argc)
+void	main_arg_inits(t_data *data, t_game *game, int argc)
 {
-    if (argc != 2)
-        exit_error(data, "Invalid number of arguments\n", 0);
-    if (!inits(data, game))
-        exit_error(data, "Structs initialization error\n", 0);
+	if (argc != 2)
+		exit_error(data, "Invalid number of arguments\n", 0);
+	if (!inits(data, game))
+		exit_error(data, "Structs initialization error\n", 0);
 }
 
-void    main_verify_file(t_data *data)
+void	main_verify_file(t_data *data)
 {
-    if (verify_file_extension(data->file))
-        exit_error(data, "File is invalid\n", 0);
-    verify_empty_file(data, data->file);
-    if (contains_tabs(data))
-        exit_error(data, "File contains tabs\n", 0);
-    verify_onlyspaces_file(data);
+	if (verify_file_extension(data->file))
+		exit_error(data, "File is invalid\n", 0);
+	verify_empty_file(data, data->file);
+	if (contains_tabs(data))
+		exit_error(data, "File contains tabs\n", 0);
+	verify_onlyspaces_file(data);
 }
 
-void    main_parse_identifiers(t_data *data, int fd)
+void	main_parse_identifiers(t_data *data, int fd)
 {
-    if (!parse_identifiers(data, fd))
-    {
-        close(fd);
-        exit_error(data, "Identifiers are incorrect\n", 0);
-    }
+	if (!parse_identifiers(data, fd))
+	{
+		close(fd);
+		exit_error(data, "Identifiers are incorrect\n", 0);
+	}
 }
 
-void    main_verify_images_rgb_dup(t_data *data, t_game *game)
+void	main_verify_images_rgb_dup(t_data *data, t_game *game)
 {
-    if (verify_images(data))
-        exit_error(data, "Incorrect extension\n", 0);
-    execute_verifications(data);
-    if (!load_components(data, game))
-        exit(EXIT_FAILURE);
-    if_allocated_free(data);
+	if (verify_images(data))
+		exit_error(data, "Incorrect extension\n", 0);
+	execute_verifications(data);
+	if (!load_components(data, game))
+		exit(EXIT_FAILURE);
+	if_allocated_free(data);
 }
 
-void    main_run_game(t_data *data, t_game *game)
+void	main_run_game(t_data *data, t_game *game)
 {
-    if (!run_game(data, game))
-        exit(EXIT_FAILURE);
+	if (!run_game(data, game))
+		exit(EXIT_FAILURE);
 }

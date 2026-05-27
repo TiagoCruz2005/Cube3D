@@ -1,6 +1,6 @@
 #include "cube3d.h"
 
-void	close_game(t_game *game)
+int	close_game(t_game *game)
 {
 	mlx_loop_end(game->mlx);
 	mlx_destroy_image(game->mlx, game->screen.img_ptr);
