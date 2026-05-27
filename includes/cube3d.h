@@ -125,6 +125,7 @@ void		execute_verifications(t_data *data);
 // verify_allocs.c
 void		if_allocated_free(t_data *data);
 void		if_textures_alloc_free(t_data *data);
+void		if_game_mlx_image_alloc_free(t_game *game);
 
 // verify_identifiers.c
 int			verify_rgb(t_data *data);

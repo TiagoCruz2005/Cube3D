@@ -33,7 +33,11 @@ void    main_verify_images_rgb_dup_mlx_init(t_data *data, t_game *game)
 	if (!game->mlx)
 		exit_error(data, "Failure to init mlx\n", 0);
     if (!load_components(data, game))
+    {
+        if_game_mlx_image_alloc_free(game);
+        if_allocated_free(data);
         exit(EXIT_FAILURE);
+    }
     if_allocated_free(data);
 }
 

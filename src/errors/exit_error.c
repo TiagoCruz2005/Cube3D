@@ -16,3 +16,4 @@ void	exit_error(t_data *data, char *msg, int f)
 		perror("");
 	exit(1);
 }
+
