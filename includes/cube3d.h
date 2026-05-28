@@ -121,7 +121,6 @@ void		verify_onlyspaces_file(t_data *data);
 
 // execute_verifications.c
 void		execute_verifications(t_data *data);
-//int			verify_size(t_game *game);
 
 // verify_allocs.c
 void		if_allocated_free(t_data *data);

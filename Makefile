@@ -1,7 +1,7 @@
 include includes/colors.mk
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra -O3 -Iincludes
+FLAGS = -Wall -Werror -Wextra -Iincludes
 
 NAME = Cub3d
 
@@ -25,9 +25,6 @@ src/main_utils/main_utils.c \
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
-
-
-$(OBJ_DIR)/src/game/game.o: FLAGS += -Wno-cast-function-type
 
 all: $(LIBFT) $(MLX_LIB) $(NAME)
 

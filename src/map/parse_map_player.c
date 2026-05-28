@@ -1,6 +1,6 @@
 #include "cube3d.h"
 
-static void	locate_player_helper(t_data *d, int y, char *line, int *p_found)
+static int	locate_player_helper(t_data *d, int y, char *line, int *p_found)
 {
 	int		i;
 	char	c;
@@ -12,7 +12,7 @@ static void	locate_player_helper(t_data *d, int y, char *line, int *p_found)
 		if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 		{
 			if (*p_found == TRUE)
-				exit_error(d, "Map contains more than 1 player\n", 0);
+				return (0);
 			else if (*p_found == FALSE)
 			{
 				d->game->player.pos_x = i + 0.5;
@@ -24,6 +24,7 @@ static void	locate_player_helper(t_data *d, int y, char *line, int *p_found)
 		}
 		i++;
 	}
+	return (1);
 }
 
 void	locate_player(t_data *d, int fd)
@@ -35,7 +36,11 @@ void	locate_player(t_data *d, int fd)
 	y = 0;
 	while (d->map[y])
 	{
-		locate_player_helper(d, y, d->map[y], &player_found);
+		if (!locate_player_helper(d, y, d->map[y], &player_found))
+		{
+			close(fd);
+			exit_error(d, "Map contains more than 1 player\n", 0);
+		}
 		y++;
 	}
 	if (player_found == FALSE)

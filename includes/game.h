@@ -131,8 +131,6 @@ typedef struct s_game
 	t_ray		ray;
 	int			screen_width;
 	int			screen_height;
-	int			texture_width;
-	int			texture_height;
 }				t_game;
 
 #endif
