@@ -3,7 +3,10 @@
 void    main_arg_inits(t_data *data, t_game *game, int argc)
 {
     if (argc != 2)
-        exit_error(data, "Invalid number of arguments\n", 0);
+    {
+        put_error("Invalid number of arguments\n");
+        exit(EXIT_FAILURE);
+    }
     if (!inits(data, game))
         exit_error(data, "Structs initialization error\n", 0);
 }
@@ -26,7 +29,7 @@ void    main_parse_identifiers(t_data *data, int fd)
 
 void    main_verify_images_rgb_dup_mlx_init(t_data *data, t_game *game)
 {
-    if (verify_images(data))
+    if (!verify_images(data))
         exit_error(data, "Incorrect extension\n", 0);
     execute_verifications(data);
     game->mlx = mlx_init();

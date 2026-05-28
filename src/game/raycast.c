@@ -11,11 +11,11 @@ static void	calc_wall_collision(t_game *game)
 		game->ray.wall_x = game->player.pos_x + game->ray.perp_wall_dist
 			* game->ray.ray_dir_x;
 	game->ray.wall_x -= floor(game->ray.wall_x);
-	tex_x = (int)(game->ray.wall_x * TEXTURE_WIDTH);
+	tex_x = (int)(game->ray.wall_x * game->texture_width);
 	if (game->ray.side == 0 && game->ray.ray_dir_x > 0)
-		tex_x = TEXTURE_WIDTH - tex_x - 1;
+		tex_x = game->texture_width - tex_x - 1;
 	if (game->ray.side == 1 && game->ray.ray_dir_y < 0)
-		tex_x = TEXTURE_WIDTH - tex_x - 1;
+		tex_x = game->texture_width - tex_x - 1;
 	game->ray.tex_x = tex_x;
 }
 
