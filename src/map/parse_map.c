@@ -114,7 +114,7 @@ void	parse_map(t_data *data, int fd)
 	data->map_max_rows = ft_size_vetor(data->map);
 	locate_player(data, fd);
 	data->map_copy = ft_vetor_dup(data->map);
-	if(!data->map_copy)
+	if (!data->map_copy)
 	{
 		close(fd);
 		exit_error(data, "Malloc Fail\n", 0);

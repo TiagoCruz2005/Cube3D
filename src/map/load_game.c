@@ -85,7 +85,7 @@ int	load_components(t_data *data, t_game *game)
 		put_error("failure to load textures\n");
 		return (FALSE);
 	}
-	if(!verify_size(game))
+	if (!verify_size(game))
 		return (FALSE);
 	if (!load_screen(game))
 		return (FALSE);

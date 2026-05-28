@@ -17,17 +17,17 @@ int	verify_size(t_game *game)
 	height = game->tex.north.height;
 	if (width <= 0 || height <= 0)
 		return (put_error("wrong size image\n"), FALSE);
-	if(game->tex.east.width != width || game->tex.east.height != height)
+	if (game->tex.east.width != width || game->tex.east.height != height)
 	{
 		put_error("wrong size image\n");
 		return (FALSE);
 	}
-	if(game->tex.south.width != width || game->tex.south.height != height)
+	if (game->tex.south.width != width || game->tex.south.height != height)
 	{
 		put_error("wrong size image\n");
 		return (FALSE);
 	}
-	if(game->tex.west.width != width || game->tex.west.height != height)
+	if (game->tex.west.width != width || game->tex.west.height != height)
 	{
 		put_error("wrong size image\n");
 		return (FALSE);
