@@ -77,7 +77,7 @@ int	create_parse_map(t_data *data)
 	data->map_max_col = find_longest_line(data);
 	data->map = malloc(sizeof(char *) * (data->num_lines + 1));
 	if (!data->map)
-		return (close(fd), 0);
+		return (close(fd), FALSE);
 	ft_memset(data->map, 0, sizeof(char *) * (data->num_lines + 1));
 	line = skip_to_map_start(fd);
 	if (is_empty_line(line))
@@ -93,12 +93,13 @@ int	create_parse_map(t_data *data)
 		line = ft_gnl(fd);
 	}
 	free_if_line(data, line, y);
-	return (close(fd), 1);
+	return (close(fd), TRUE);
 }
 
 void	parse_map(t_data *data, int fd)
 {
-	create_parse_map(data);
+	if (create_parse_map(data) == FALSE)
+		exit_error(data, "Failed to allocate map\n", FALSE);
 	if (!verify_map_cluster(data) || !verify_line_borders(data)
 		|| !verify_top_bottom_lines(data))
 	{
@@ -111,9 +112,14 @@ void	parse_map(t_data *data, int fd)
 		exit_error(data, "Map is too big\n", 0);
 	}
 	data->map_max_rows = ft_size_vetor(data->map);
-	locate_player(data);
+	locate_player(data, fd);
 	data->map_copy = ft_vetor_dup(data->map);
-	flood_fill(data, data->game->player.pos_y, data->game->player.pos_x);
-	island_handler(data);
+	if (!data->map_copy)
+	{
+		close(fd);
+		exit_error(data, "Malloc Fail\n", 0);
+	}
+	flood_fill(data, data->game->player.pos_y, data->game->player.pos_x, fd);
+	island_handler(data, fd);
 	ft_free_vector(&data->map_copy);
 }

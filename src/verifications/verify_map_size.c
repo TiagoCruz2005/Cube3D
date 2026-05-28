@@ -7,7 +7,7 @@ int	verify_map_size(t_data *data)
 	i = 0;
 	while (data->map[i])
 		i++;
-	if (data->map_max_col > 500 || i > 500)
+	if (data->map_max_col > 255 || i > 255)
 		return (FALSE);
 	return (TRUE);
 }

@@ -4,12 +4,6 @@ int	inits(t_data *data, t_game *game)
 {
 	init_data(data);
 	init_struct(game);
-	game->mlx = mlx_init();
-	if (!game->mlx)
-	{
-		put_error("failure to init mlx\n");
-		return (FALSE);
-	}
 	return (TRUE);
 }
 

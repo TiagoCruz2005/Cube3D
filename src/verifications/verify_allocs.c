@@ -6,6 +6,8 @@ void	if_allocated_free(t_data *data)
 		free(data->file);
 	if (data->map)
 		ft_free_vector(&data->map);
+	if (data->map_copy)
+		ft_free_vector(&data->map_copy);
 	if_textures_alloc_free(data);
 }
 
@@ -19,4 +21,25 @@ void	if_textures_alloc_free(t_data *data)
 		free(data->textures.we);
 	if (data->textures.ea)
 		free(data->textures.ea);
+}
+
+void	if_game_mlx_image_alloc_free(t_game *game)
+{
+	if (game->screen.img_ptr)
+		mlx_destroy_image(game->mlx, game->screen.img_ptr);
+	if (game->tex.east.img.img_ptr)
+		mlx_destroy_image(game->mlx, game->tex.east.img.img_ptr);
+	if (game->tex.north.img.img_ptr)
+		mlx_destroy_image(game->mlx, game->tex.north.img.img_ptr);
+	if (game->tex.south.img.img_ptr)
+		mlx_destroy_image(game->mlx, game->tex.south.img.img_ptr);
+	if (game->tex.west.img.img_ptr)
+		mlx_destroy_image(game->mlx, game->tex.west.img.img_ptr);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	if (game->map.grid)
+		ft_free_vector(&game->map.grid);
 }

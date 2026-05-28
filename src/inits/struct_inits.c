@@ -7,6 +7,8 @@ void	init_textures(t_ptex *text)
 	text->so = NULL;
 	text->we = NULL;
 	text->ea = NULL;
+	text->cc_n = 0;
+	text->fc_n = 0;
 	text->fc[0] = 0;
 	text->fc[1] = 0;
 	text->fc[2] = 0;

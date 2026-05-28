@@ -3,7 +3,6 @@
 
 # define WIDTH 1920
 # define HEIGHT 960
-# define TEXTURE_WIDTH 500
 
 # define KEY_W 119
 # define KEY_A 97
@@ -132,6 +131,8 @@ typedef struct s_game
 	t_ray		ray;
 	int			screen_width;
 	int			screen_height;
+	int			texture_width;
+	int			texture_height;
 }				t_game;
 
 #endif

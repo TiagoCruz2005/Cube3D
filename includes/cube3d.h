@@ -19,6 +19,8 @@ typedef struct s_ptex
 	char	*so;
 	char	*we;
 	char	*ea;
+	int		fc_n;
+	int		cc_n;
 	int		fc[3];
 	int		cc[3];
 }			t_ptex;
@@ -89,17 +91,17 @@ int			ft_strlen_n(char *str);
 int			find_longest_line(t_data *data);
 void		alloc_map_line(t_data *data, int i, int y);
 int			copy_map_line(t_data *data, char *line, int y, int bigest_len);
-void		island_handler(t_data *data);
+void		island_handler(t_data *data, int fd);
 
 // parse_map_lines.c
 int			is_valid_map_tile(char c);
 int			verify_map_cluster(t_data *d);
 int			verify_line_borders(t_data *d);
 int			verify_top_bottom_lines(t_data *d);
-void		flood_fill(t_data *data, int row, int col);
+void		flood_fill(t_data *data, int row, int col, int fd);
 
 // parse_map_player.c
-void		locate_player(t_data *d);
+void		locate_player(t_data *d, int fd);
 
 // load_textures.c
 int			load_textures(t_data data, t_game *game);
@@ -119,10 +121,12 @@ void		verify_onlyspaces_file(t_data *data);
 
 // execute_verifications.c
 void		execute_verifications(t_data *data);
+int			verify_size(t_game *game);
 
 // verify_allocs.c
 void		if_allocated_free(t_data *data);
 void		if_textures_alloc_free(t_data *data);
+void		if_game_mlx_image_alloc_free(t_game *game);
 
 // verify_identifiers.c
 int			verify_rgb(t_data *data);
@@ -188,7 +192,7 @@ int			close_game(t_game *game);
 void		main_arg_inits(t_data *data, t_game *game, int argc);
 void		main_verify_file(t_data *data);
 void		main_parse_identifiers(t_data *data, int fd);
-void		main_verify_images_rgb_dup(t_data *data, t_game *game);
+void		main_verify_images_rgb_dup_mlx_init(t_data *data, t_game *game);
 void		main_run_game(t_data *data, t_game *game);
 
 #endif

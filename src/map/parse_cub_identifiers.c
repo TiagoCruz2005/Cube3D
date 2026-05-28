@@ -77,12 +77,14 @@ int	line_identifier_parse(t_data *data, char *line)
 		data->textures.ea = ft_strdup_n(line + 3);
 	else if (ft_strncmp(line, "F ", 2) == 0)
 	{
-		if (!parse_floor_color(data, line + 2))
+		data->textures.fc_n++;
+		if (data->textures.fc_n != 1 || !parse_floor_color(data, line + 2))
 			return (0);
 	}
 	else if (ft_strncmp(line, "C ", 2) == 0)
 	{
-		if (!parse_ceilling_color(data, line + 2))
+		data->textures.cc_n++;
+		if (data->textures.cc_n != 1 || !parse_ceilling_color(data, line + 2))
 			return (0);
 	}
 	else

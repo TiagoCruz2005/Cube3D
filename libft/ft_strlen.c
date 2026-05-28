@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:37:16 by thde-sou          #+#    #+#             */
-/*   Updated: 2026/04/22 19:43:51 by thde-sou         ###   ########.fr       */
+/*   Updated: 2026/05/27 18:31:38 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 
+	if (!s)
+		return (0);
 	len = 0;
 	while (s[len] != '\0')
 		len++;

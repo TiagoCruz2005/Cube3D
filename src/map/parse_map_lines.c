@@ -79,22 +79,30 @@ int	verify_top_bottom_lines(t_data *d)
 	return (1);
 }
 
-void	flood_fill(t_data *data, int row, int col)
+void	flood_fill(t_data *data, int row, int col, int fd)
 {
 	char	c;
 
 	if (row < 0 || row >= data->map_max_rows || col < 0
 		|| col >= data->map_max_col)
+	{
+		if (fd != -1)
+			close(fd);
 		exit_error(data, "The map is not closed\n", 0);
+	}
 	c = data->map_copy[row][col];
 	if (c == ' ')
+	{
+		if (fd != -1)
+			close(fd);
 		exit_error(data, "The map is not closed\n", 0);
+	}
 	if (c == '1' || c == 'F')
 		return ;
 	if (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
 		data->map_copy[row][col] = 'F';
-	flood_fill(data, row + 1, col);
-	flood_fill(data, row - 1, col);
-	flood_fill(data, row, col + 1);
-	flood_fill(data, row, col - 1);
+	flood_fill(data, row + 1, col, fd);
+	flood_fill(data, row - 1, col, fd);
+	flood_fill(data, row, col + 1, fd);
+	flood_fill(data, row, col - 1, fd);
 }

@@ -42,20 +42,24 @@ int	verify_image_extension(char *str)
 	int	len;
 
 	len = ft_strlen(str);
-	if (len < 4)
-		return (1);
-	return (ft_strcmp(str + len - 4, ".xpm"));
+	if (len == 0)
+		return (FALSE);
+	else if (len < 4)
+		return (FALSE);
+	else if (ft_strcmp(str + len - 4, ".xpm") != 0)
+		return (FALSE);
+	return (TRUE);
 }
 
 int	verify_images(t_data *data)
 {
 	if (verify_image_extension(data->textures.no))
-		return (1);
+		return (TRUE);
 	if (verify_image_extension(data->textures.so))
-		return (1);
+		return (TRUE);
 	if (verify_image_extension(data->textures.we))
-		return (1);
+		return (TRUE);
 	if (verify_image_extension(data->textures.ea))
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }
