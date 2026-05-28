@@ -8,7 +8,7 @@ void	execute_verifications(t_data *data)
 		exit_error(data, "Error: duplicate found\n", 0);
 }
 
-int	verify_size(t_game *game)
+/*int	verify_size(t_game *game)
 {
 	int	width;
 	int	height;
@@ -36,3 +36,4 @@ int	verify_size(t_game *game)
 	game->texture_height = height;
 	return (TRUE);
 }
+*/

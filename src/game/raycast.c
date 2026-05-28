@@ -3,7 +3,9 @@
 static void	calc_wall_collision(t_game *game)
 {
 	int	tex_x;
+	t_texture	*tex;
 
+	tex = get_texture(game);
 	if (game->ray.side == 0)
 		game->ray.wall_x = game->player.pos_y + game->ray.perp_wall_dist
 			* game->ray.ray_dir_y;
@@ -11,11 +13,11 @@ static void	calc_wall_collision(t_game *game)
 		game->ray.wall_x = game->player.pos_x + game->ray.perp_wall_dist
 			* game->ray.ray_dir_x;
 	game->ray.wall_x -= floor(game->ray.wall_x);
-	tex_x = (int)(game->ray.wall_x * game->texture_width);
+	tex_x = (int)(game->ray.wall_x * tex->width);
 	if (game->ray.side == 0 && game->ray.ray_dir_x > 0)
-		tex_x = game->texture_width - tex_x - 1;
+		tex_x = tex->width - tex_x - 1;
 	if (game->ray.side == 1 && game->ray.ray_dir_y < 0)
-		tex_x = game->texture_width - tex_x - 1;
+		tex_x = tex->width - tex_x - 1;
 	game->ray.tex_x = tex_x;
 }
 
