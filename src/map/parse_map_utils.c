@@ -29,22 +29,21 @@ int	find_longest_line(t_data *data)
 
 	cub_open(data, &fd, data->file);
 	line = skip_to_map_start(fd);
-	if (is_empty_line(line))
-	{
-		free(line);
-		line = ft_gnl(fd);
-	}
 	len = 0;
 	get_len = 0;
-	while (line && !is_empty_line(line))
+	while (line)
 	{
+		if (is_blank_line(line))
+		{
+			free_line_close_fd(line, &fd);
+			exit_error(data, "Emptu line inside or after map\n", 0);
+		}
 		get_len = ft_strlen_n(line);
 		if (len < get_len)
 			len = get_len;
 		free(line);
 		line = ft_gnl(fd);
 	}
-	free(line);
 	close(fd);
 	return (len);
 }

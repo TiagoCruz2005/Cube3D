@@ -33,8 +33,12 @@ void	map_count_lines(t_data *data, int fd)
 	}
 	while (line)
 	{
-		if (!is_empty_line(line))
-			count++;
+		if (is_blank_line(line))
+		{
+			free(line);
+			exit_error(data, "Empty line inside or after map\n", 0);
+		}
+		count++;
 		free(line);
 		line = ft_gnl(fd);
 	}
@@ -80,14 +84,14 @@ int	create_parse_map(t_data *data)
 		return (close(fd), FALSE);
 	ft_memset(data->map, 0, sizeof(char *) * (data->num_lines + 1));
 	line = skip_to_map_start(fd);
-	if (is_empty_line(line))
-	{
-		free(line);
-		line = ft_gnl(fd);
-	}
 	y = 0;
-	while (line && !is_empty_line(line))
+	while (line)
 	{
+		if (is_blank_line(line))
+		{
+			free_line_close_fd(line, &fd);
+			exit_error(data, "Empty line inside or after map\n", 0);
+		}
 		copy_map_line(data, line, y++, data->map_max_col);
 		free(line);
 		line = ft_gnl(fd);

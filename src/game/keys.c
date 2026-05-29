@@ -1,50 +1,50 @@
 #include "cube3d.h"
 
-int	key_press(int keycode, t_game *game)
+int	key_press(int keycode, void *game)
 {
 	if (keycode == KEY_W)
-		game->keys.w = TRUE;
+		((t_game *)game)->keys.w = TRUE;
 	if (keycode == KEY_S)
-		game->keys.s = TRUE;
+		((t_game *)game)->keys.s = TRUE;
 	if (keycode == KEY_A)
-		game->keys.a = TRUE;
+		((t_game *)game)->keys.a = TRUE;
 	if (keycode == KEY_D)
-		game->keys.d = TRUE;
+		((t_game *)game)->keys.d = TRUE;
 	if (keycode == KEY_LEFT)
-		game->keys.left = TRUE;
+		((t_game *)game)->keys.left = TRUE;
 	if (keycode == KEY_RIGHT)
-		game->keys.right = TRUE;
+		((t_game *)game)->keys.right = TRUE;
 	if (keycode == KEY_UP)
-		game->keys.up = TRUE;
+		((t_game *)game)->keys.up = TRUE;
 	if (keycode == KEY_DOWN)
-		game->keys.down = TRUE;
+		((t_game *)game)->keys.down = TRUE;
 	if (keycode == ESC)
 		close_game(game);
 	if (keycode == KEY_SHIFT)
-		game->player.running = TRUE;
+		((t_game *)game)->player.running = TRUE;
 	return (0);
 }
 
-int	key_realease(int keycode, t_game *game)
+int	key_realease(int keycode, void *game)
 {
 	if (keycode == KEY_W)
-		game->keys.w = FALSE;
+		((t_game *)game)->keys.w = FALSE;
 	if (keycode == KEY_S)
-		game->keys.s = FALSE;
+		((t_game *)game)->keys.s = FALSE;
 	if (keycode == KEY_A)
-		game->keys.a = FALSE;
+		((t_game *)game)->keys.a = FALSE;
 	if (keycode == KEY_D)
-		game->keys.d = FALSE;
+		((t_game *)game)->keys.d = FALSE;
 	if (keycode == KEY_LEFT)
-		game->keys.left = FALSE;
+		((t_game *)game)->keys.left = FALSE;
 	if (keycode == KEY_RIGHT)
-		game->keys.right = FALSE;
+		((t_game *)game)->keys.right = FALSE;
 	if (keycode == KEY_UP)
-		game->keys.up = FALSE;
+		((t_game *)game)->keys.up = FALSE;
 	if (keycode == KEY_DOWN)
-		game->keys.down = FALSE;
+		((t_game *)game)->keys.down = FALSE;
 	if (keycode == KEY_SHIFT)
-		game->player.running = FALSE;
+		((t_game *)game)->player.running = FALSE;
 	return (0);
 }
 

@@ -1,7 +1,7 @@
 include includes/colors.mk
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra -Iincludes
+FLAGS = -Wall -Werror -Wextra -Iincludes -Wno-cast-function-type
 
 NAME = Cub3d
 
@@ -21,7 +21,7 @@ src/map/load_texture.c src/game/window.c src/game/game.c src/game/player.c\
 src/map/parse_map_player.c src/game/raycast.c src/game/draw.c src/game/draw_utils.c\
 src/game/keys.c src/game/move.c src/game/rotate.c src/game/close.c\
 src/map/parse_image_path.c src/map/parse_file.c src/verifications/verify_map_size.c \
-src/main_utils/main_utils.c \
+src/main_utils/main_utils.c src/map/parse_map_lines_utils.c \
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)

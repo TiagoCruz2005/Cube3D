@@ -42,6 +42,11 @@ int	verify_line_borders(t_data *d)
 		i = 0;
 		while (ft_isspace(d->map[y][i]))
 			i++;
+		if (d->map[y][i] == '\0')
+		{
+			y++;
+			continue ;
+		}
 		if (d->map[y][i] != '1')
 			return (0);
 		i = ft_strlen(d->map[y]) - 1;

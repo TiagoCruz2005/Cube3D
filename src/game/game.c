@@ -1,7 +1,10 @@
 #include "../../includes/cube3d.h"
 
-int	game_loop(t_game *game)
+int	game_loop(void *param)
 {
+	t_game *game;
+
+	game = (t_game *)param;
 	update_player(game);
 	render_frame(game);
 	return (0);

@@ -100,6 +100,10 @@ int			verify_line_borders(t_data *d);
 int			verify_top_bottom_lines(t_data *d);
 void		flood_fill(t_data *data, int row, int col, int fd);
 
+// parse_map_lines_utils.c
+int 		is_blank_line(char *line);
+void    free_line_close_fd(char *line, int *fd);
+
 // parse_map_player.c
 void		locate_player(t_data *d, int fd);
 
@@ -144,7 +148,7 @@ int			load_screen(t_game *game);
 // game
 // game.c
 int			run_game(t_data *data, t_game *game);
-int			game_loop(t_game *game);
+int			game_loop(void *param);
 
 // window.c
 int			open_window(t_game *game);
@@ -168,8 +172,8 @@ void		put_pixel(t_img *img, int x, int y, int color);
 int			get_texture_pixel(t_texture *tex, int x, int y);
 
 //keys.c
-int			key_press(int keycode, t_game *game);
-int			key_realease(int keycode, t_game *game);
+int			key_press(int keycode, void *game);
+int			key_realease(int keycode, void *game);
 void		update_player(t_game *game);
 
 //move.c
@@ -184,7 +188,7 @@ void		rotate_left(t_game *game);
 void		rotate_up_down(t_game *game, int dir);
 
 //close.c
-int			close_game(t_game *game);
+int			close_game(void *param);
 
 // main_utils
 // main_utils.c
