@@ -101,8 +101,8 @@ int			verify_top_bottom_lines(t_data *d);
 void		flood_fill(t_data *data, int row, int col, int fd);
 
 // parse_map_lines_utils.c
-int 		is_blank_line(char *line);
-void    free_line_close_fd(char *line, int *fd);
+int			is_blank_line(char *line);
+void		free_line_close_fd(char *line, int *fd);
 
 // parse_map_player.c
 void		locate_player(t_data *d, int fd);
@@ -149,6 +149,10 @@ int			load_screen(t_game *game);
 // game.c
 int			run_game(t_data *data, t_game *game);
 int			game_loop(void *param);
+
+// game_utils.c
+int			is_blocking_tile(t_game *game, double x, double y);
+int			can_move_to(t_game *game, double x, double y);
 
 // window.c
 int			open_window(t_game *game);

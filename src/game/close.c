@@ -2,7 +2,7 @@
 
 int	close_game(void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	mlx_loop_end(game->mlx);

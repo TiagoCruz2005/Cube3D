@@ -2,7 +2,7 @@
 
 int	game_loop(void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	update_player(game);
