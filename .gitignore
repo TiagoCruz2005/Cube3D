@@ -1,0 +1,9 @@
+Cub3d
+obj/
+
+*.o
+*.a
+
+minilibx-linux/obj/
+minilibx-linux/libmlx.a
+minilibx-linux/libmlx_Linux.a

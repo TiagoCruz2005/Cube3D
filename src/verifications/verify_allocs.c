@@ -25,18 +25,20 @@ void	if_textures_alloc_free(t_data *data)
 
 void	if_game_mlx_image_alloc_free(t_game *game)
 {
-	if (game->screen.img_ptr)
-		mlx_destroy_image(game->mlx, game->screen.img_ptr);
-	if (game->tex.east.img.img_ptr)
-		mlx_destroy_image(game->mlx, game->tex.east.img.img_ptr);
-	if (game->tex.north.img.img_ptr)
-		mlx_destroy_image(game->mlx, game->tex.north.img.img_ptr);
-	if (game->tex.south.img.img_ptr)
-		mlx_destroy_image(game->mlx, game->tex.south.img.img_ptr);
-	if (game->tex.west.img.img_ptr)
-		mlx_destroy_image(game->mlx, game->tex.west.img.img_ptr);
 	if (game->mlx)
 	{
+		if (game->screen.img_ptr)
+			mlx_destroy_image(game->mlx, game->screen.img_ptr);
+		if (game->tex.east.img.img_ptr)
+			mlx_destroy_image(game->mlx, game->tex.east.img.img_ptr);
+		if (game->tex.north.img.img_ptr)
+			mlx_destroy_image(game->mlx, game->tex.north.img.img_ptr);
+		if (game->tex.south.img.img_ptr)
+			mlx_destroy_image(game->mlx, game->tex.south.img.img_ptr);
+		if (game->tex.west.img.img_ptr)
+			mlx_destroy_image(game->mlx, game->tex.west.img.img_ptr);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}

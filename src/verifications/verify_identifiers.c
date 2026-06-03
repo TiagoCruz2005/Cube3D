@@ -53,13 +53,13 @@ int	verify_image_extension(char *str)
 
 int	verify_images(t_data *data)
 {
-	if (verify_image_extension(data->textures.no))
-		return (TRUE);
-	if (verify_image_extension(data->textures.so))
-		return (TRUE);
-	if (verify_image_extension(data->textures.we))
-		return (TRUE);
-	if (verify_image_extension(data->textures.ea))
-		return (TRUE);
-	return (FALSE);
+	if (!verify_image_extension(data->textures.no))
+		return (FALSE);
+	if (!verify_image_extension(data->textures.so))
+		return (FALSE);
+	if (!verify_image_extension(data->textures.we))
+		return (FALSE);
+	if (!verify_image_extension(data->textures.ea))
+		return (FALSE);
+	return (TRUE);
 }

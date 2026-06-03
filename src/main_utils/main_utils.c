@@ -48,6 +48,7 @@ void	main_run_game(t_data *data, t_game *game)
 {
 	if (!run_game(data, game))
 	{
+		if_game_mlx_image_alloc_free(game);
 		if_allocated_free(data);
 		exit(EXIT_FAILURE);
 	}
