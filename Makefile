@@ -47,7 +47,7 @@ $(OBJ_DIR)/%.o: %.c
 	@echo -e "$(RESET)"
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 	@echo -e "$(FGRED)"
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(MAKE) -C $(MLX_DIR) clean
