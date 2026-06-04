@@ -11,7 +11,6 @@ char	*trim_lead(char *str)
 
 int	parse_floor_color(t_data *data, char *line)
 {
-	int	start;
 	int	i;
 	int	k;
 
@@ -21,12 +20,9 @@ int	parse_floor_color(t_data *data, char *line)
 	k = 0;
 	while (line[i] && k < 3)
 	{
-		start = i;
-		while (ft_isdigit(line[i]))
-			i++;
-		if (i == start)
+		if (!parse_rgb_value(line, &i, &data->textures.fc[k]))
 			return (0);
-		data->textures.fc[k++] = ft_atoi(line + start);
+		k++;
 		if (k < 3 && line[i] == ',')
 			i++;
 		else if (k < 3 && line[i] != ',')
@@ -39,7 +35,6 @@ int	parse_floor_color(t_data *data, char *line)
 
 int	parse_ceilling_color(t_data *data, char *line)
 {
-	int	start;
 	int	i;
 	int	k;
 
@@ -49,12 +44,9 @@ int	parse_ceilling_color(t_data *data, char *line)
 	k = 0;
 	while (line[i] && k < 3)
 	{
-		start = i;
-		while (ft_isdigit(line[i]))
-			i++;
-		if (i == start)
+		if (!parse_rgb_value(line, &i, &data->textures.cc[k]))
 			return (0);
-		data->textures.cc[k++] = ft_atoi(line + start);
+		k++;
 		if (k < 3 && line[i] == ',')
 			i++;
 		else if (k < 3 && line[i] != ',')

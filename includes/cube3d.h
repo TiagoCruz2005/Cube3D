@@ -76,6 +76,9 @@ int			if_not_line_identifier_parse(t_data *data, char *line, char *orig,
 void		free_if_line(t_data *data, char *line, int y);
 void		remove_end_spaces(char *str);
 
+// parse_cub_identifiers_utils_2.c
+int			parse_rgb_value(char *line, int *i, int *out);
+
 // parse_image_path.c
 void		image_remove_end_spaces(t_data *data);
 
