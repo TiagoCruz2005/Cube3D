@@ -106,6 +106,7 @@ NO ./path_to_north_texture.xpm
 SO ./path_to_south_texture.xpm
 WE ./path_to_west_texture.xpm
 EA ./path_to_east_texture.xpm
+
 F 220,100,0
 C 225,30,0
 ```
@@ -141,6 +142,7 @@ NO resources/textures/xpm/north_texture.xpm
 SO resources/textures/xpm/south_texture.xpm
 WE resources/textures/xpm/west_texture.xpm
 EA resources/textures/xpm/east_texture.xpm
+
 F 220,100,0
 C 225,30,0
 
