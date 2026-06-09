@@ -103,7 +103,6 @@ typedef struct s_ray
 
 	int			step_x;
 	int			step_y;
-	int			hit;
 	int			side;
 
 	int			line_height;
@@ -112,9 +111,6 @@ typedef struct s_ray
 
 	double		wall_x;
 	int			tex_x;
-
-	double		step;
-	double		tex_pos;
 }				t_ray;
 
 typedef struct s_game
@@ -130,8 +126,6 @@ typedef struct s_game
 	t_color		floor;
 	t_color		ceiling;
 	t_ray		ray;
-	int			screen_width;
-	int			screen_height;
 }				t_game;
 
 #endif
