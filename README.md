@@ -51,7 +51,7 @@ make
 This produces the executable:
 
 ```text
-Cub3d
+cub3D
 ```
 
 Available Makefile rules:

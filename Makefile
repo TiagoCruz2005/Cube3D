@@ -1,9 +1,9 @@
 include includes/colors.mk
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra -Iincludes -Wno-cast-function-type
+FLAGS = -Wall -Werror -Wextra -O3 -Iincludes -Wno-cast-function-type
 
-NAME = Cub3d
+NAME = cub3D
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

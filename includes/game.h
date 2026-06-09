@@ -17,7 +17,7 @@
 
 # define SPEED 0.07
 # define ROT_SPEED 0.05
-# define PLAYER_RADIUS 0.12
+# define PLAYER_RADIUS 0.15
 
 typedef struct s_img
 {
