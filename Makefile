@@ -61,4 +61,7 @@ fclean: clean
 
 re: fclean all
 
+val:
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./cub3D resources/maps/map.cub
+
 .PHONY: all clean fclean re

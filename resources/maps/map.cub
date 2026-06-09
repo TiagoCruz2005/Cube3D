@@ -1,12 +1,10 @@
 NO resources/textures/xpm/obsi.xpm
 SO resources/textures/xpm/woodlog.xpm
+WE resources/textures/xpm/coble.xpm
+EA resources/textures/xpm/netherrack.xpm
+
 C 135,206,235
 F 76,153,0
-WE resources/textures/xpm/coble.xpm
-EA         resources/textures/xpm/netherrack.xpm
-
-
-
 
 1111111111111111111111111
 1010000000110000000000001
