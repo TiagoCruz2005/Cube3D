@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thde-sou <thde-sou@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: tide-pau <tide-pau@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:31:28 by thde-sou          #+#    #+#             */
-/*   Updated: 2026/06/09 19:31:29 by thde-sou         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:49:24 by tide-pau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ t_texture	*get_texture(t_game *game)
 	if (game->ray.side == 0)
 	{
 		if (game->ray.ray_dir_x > 0)
-			return (&tex->west);
-		else
 			return (&tex->east);
+		else
+			return (&tex->west);
 	}
 	else
 	{
 		if (game->ray.ray_dir_y > 0)
-			return (&tex->north);
-		else
 			return (&tex->south);
+		else
+			return (&tex->north);
 	}
 }
 
