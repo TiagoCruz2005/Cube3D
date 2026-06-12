@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tide-pau <tide-pau@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: thde-sou <thde-sou@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:34:56 by tide-pau          #+#    #+#             */
-/*   Updated: 2026/06/09 19:34:57 by tide-pau         ###   ########.fr       */
+/*   Updated: 2026/06/12 19:00:09 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,12 @@ static int	upload_texture(t_game *game, char *flag, char *path)
 		return (FALSE);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-	{
-		perror(path);
 		return (FALSE);
-	}
 	close(fd);
 	slot->img.img_ptr = mlx_xpm_file_to_image(game->mlx, path, &slot->width,
 			&slot->height);
 	if (!slot->img.img_ptr)
-	{
-		put_error(path);
 		return (FALSE);
-	}
 	slot->img.addr = mlx_get_data_addr(slot->img.img_ptr, &slot->img.bpp,
 			&slot->img.line_len, &slot->img.endian);
 	if (!slot->img.addr)
