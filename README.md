@@ -68,7 +68,7 @@ make re     # rebuild from scratch
 Run the program with one `.cub` scene file:
 
 ```sh
-./Cub3d resources/maps/map.cub
+./cub3D resources/maps/map.cub
 ```
 
 The program expects exactly one argument. If the file is invalid, misconfigured,
