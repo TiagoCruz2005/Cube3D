@@ -6,7 +6,7 @@
 /*   By: tide-pau <tide-pau@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:35:31 by tide-pau          #+#    #+#             */
-/*   Updated: 2026/06/09 19:35:32 by tide-pau         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:35:28 by tide-pau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	map_count_lines(t_data *data, int fd)
 	{
 		if (is_blank_line(line))
 		{
-			free(line);
+			free_line_close_fd(line, fd);
 			exit_error(data, "Empty line inside or after map\n", 0);
 		}
 		count++;
