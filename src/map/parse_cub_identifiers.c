@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub_identifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tide-pau <tide-pau@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: thde-sou <thde-sou@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:35:10 by tide-pau          #+#    #+#             */
-/*   Updated: 2026/06/12 15:01:48 by tide-pau         ###   ########.fr       */
+/*   Updated: 2026/06/19 17:28:07 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,15 @@ int	line_identifier_parse(t_data *data, char *line)
 	else if (ft_strncmp(line, "F ", 2) == 0)
 	{
 		data->textures.fc_n++;
-		if (data->textures.fc_n != 1 || !parse_floor_color(data, trim_lead(line + 2)))
+		if (data->textures.fc_n != 1
+			|| !parse_floor_color(data, trim_lead(line + 2)))
 			return (0);
 	}
 	else if (ft_strncmp(line, "C ", 2) == 0)
 	{
 		data->textures.cc_n++;
-		if (data->textures.cc_n != 1 || !parse_ceilling_color(data,trim_lead(line + 2)))
+		if (data->textures.cc_n != 1
+			|| !parse_ceilling_color(data, trim_lead(line + 2)))
 			return (0);
 	}
 	else
