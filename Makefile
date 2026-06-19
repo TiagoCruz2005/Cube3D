@@ -10,6 +10,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 MLX_DIR = minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lbsd -lm
+MLX = minilibx-linux
 
 SRC = main.c src/errors/exit_error.c src/verifications/execute_verifications.c \
 src/verifications/file_verifications.c src/verifications/verify_allocs.c \
@@ -30,14 +31,14 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(LIBFT) $(MLX_LIB) $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(MLX)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(LIBS) -o $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) all
 	echo -e "📚$(FGCYAN)Libft Compilation Sucessfull$(RESET)📚"
 
-$(MLX_LIB):
+$(MLX_LIB): $(MLX)
 	@$(MAKE) -C $(MLX_DIR)
 
 $(OBJ_DIR)/%.o: %.c
@@ -45,6 +46,9 @@ $(OBJ_DIR)/%.o: %.c
 	@echo -e "✨$(FGYELLOW)Object Compilation Sucessfull✨"
 	$(CC) $(FLAGS) -c $< -o $@
 	@echo -e "$(RESET)"
+
+$(MLX):
+	@git clone https://github.com/42paris/minilibx-linux.git
 
 clean:
 	rm -rf $(OBJ_DIR)
@@ -55,6 +59,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf $(MLX)
 	@echo -e "$(FGRED)"
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo -e "$(RESET)"
