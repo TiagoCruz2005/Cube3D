@@ -6,7 +6,7 @@
 /*   By: tide-pau <tide-pau@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:31:28 by thde-sou          #+#    #+#             */
-/*   Updated: 2026/06/12 18:49:24 by tide-pau         ###   ########.fr       */
+/*   Updated: 2026/06/19 17:44:47 by tide-pau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_texture	*get_texture(t_game *game)
 
 int	open_window(t_game *game)
 {
-	game->win = mlx_new_window(game->mlx, 1920, 960, "T_Cube3D");
+	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "T_Cube3D");
 	if (!game->win)
 	{
 		put_error("failure to create window\n");
